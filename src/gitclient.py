@@ -5,9 +5,9 @@ class GitClient(object):
     def __init__(self):
         self.sh = 'sh'
         self.package = os.path.dirname(__file__)
-        self.author_renaming_script = package + '/author_renaming.sh'
-        self.change_email_script = package + '/change_email.sh'
-        self.rename_branch_script = package + '/rename_branch.sh'
+        self.author_renaming_script = self.package + '/author_renaming.sh'
+        self.change_email_script = self.package + '/change_email.sh'
+        self.rename_branch_script = self.package + '/rename_branch.sh'
 
     def author_renaming_command(self, old_name, new_name):
         return [self.sh, self.author_renaming_script, old_name, new_name]
@@ -28,7 +28,6 @@ class GitClient(object):
         cmd(self.rename_branch_command(old_name, new_name))
 
     def change_email_and_name(self, old_email, new_email, old_name, new_name):
-        self.change_email(old_email, new_name)
+        self.change_email(old_email, new_email)
         self.author_renaming(old_name, new_name)
 
-        
