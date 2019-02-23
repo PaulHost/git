@@ -23,16 +23,16 @@ def main(argv):
                                                new_email=argv.pop(0), \
                                                old_name=argv.pop(0), \
                                                new_name=argv.pop(0), \
-                                               g=isGlobal(argv))
+                                               g=is_global(argv))
             else:
-                client.change_email(second_arg, argv.pop(0), g=isGlobal(argv))
+                client.change_email(second_arg, argv.pop(0), g=is_global(argv))
         elif first_arg == '-n':
-            client.author_renaming(old_name=argv.pop(0), new_name=argv.pop(0), g=isGlobal(argv))
+            client.author_renaming(old_name=argv.pop(0), new_name=argv.pop(0), g=is_global(argv))
         elif first_arg == '-r':
             client.rename_branch(old_name=argv.pop(0), new_name=argv.pop(0))
 
 
-def isGlobal(argv):
+def is_global(argv):
     try:
         return argv.pop(0) == '-g'
     except IndexError:
